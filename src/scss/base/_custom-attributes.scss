@@ -1,0 +1,28 @@
+/* ==========================================================================
+   Custom attributes
+   ========================================================================== */
+$spacingsNumber: 10;
+$positions: 'top', 'right', 'bottom', 'left';
+
+@for $i from $spacingsNumber through 0 {
+	@for $j from 1 through length($positions) {
+		$position: nth($positions, $j);
+	    [data-css-spacing~='#{$position}#{$i}'] {
+		    margin-#{$position}: $size_gutter*$i;
+		}
+		[data-css-offset~='#{$position}#{$i}'] {
+		    padding-#{$position}: $size_gutter*$i;
+		}
+		@for $k from 1 through length($breakpoints_array) {
+			$breakpoint: nth($breakpoints_array, $k);
+			@include media('<=#{$breakpoint}') {
+				[data-css-spacing*='#{$breakpoint}(#{$position}#{$i})'] {
+			        margin-#{$position}: $size_gutter*$i;
+			    }
+			    [data-css-offset*='#{$breakpoint}(#{$position}#{$i})'] {
+			        padding-#{$position}: $size_gutter*$i;
+			    }
+			}
+		}
+	}
+}

@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Svg
+   ========================================================================== */
+.c-dot {
+    fill: blue;
+}
+
+.c-dot:hover {
+    fill: yellow;
+}
+
+#c-middle {
+    stroke-width: 5px;
+    stroke: black;
+}
+
+.c-svg-img {
+    display: block;
+
+    width: 40px;
+    max-width: 100%;
+    height: auto;
+}
+
+.c-svg-bg-img {
+    display: block;
+
+    width: 40px;
+    height: 40px;
+
+    text-indent: -9999px;
+
+    background: url(../img/magnify.svg) 50% 50% no-repeat;
+    background-size: 40px 40px;
+}
+
+.c-svg-icon {
+    width: 80px;
+    max-width: 100%;
+    height: 80px;
+    padding: 10px;
+
+    transition: 170ms ease-in-out;
+
+    border-radius: 50%;
+    background: #ffb600;
+    &__arrowhead {
+        fill: navy;
+    }
+    &__arrow {
+        fill: #3cf;
+    }
+    &:hover {
+        transform: rotate(-180deg) scale(1.1);
+
+        background: navy;
+        .c-svg-icon {
+            &__arrowhead {
+                fill: red;
+            }
+            &__arrow {
+                fill: pink;
+            }
+        }
+    }
+}
+
+.c-svg-inline,
+.c-svg-external {
+    width: 40px;
+    max-width: 100%;
+    height: 40px;
+    max-height: 100%;
+}
+
+.c-svg-external .magnify {
+    fill: red;
+}
+
+.c-svg-object,
+.c-svg-embed,
+.c-svg-iframe {
+    display: block;
+
+    width: 40px;
+    height: 40px;
+}
+
+@include media('<=desktop-small') {
+    .c-svg-rwd {
+        .c-svg-icon__arrow {
+            fill: red;
+        }
+        .c-svg-icon__arrowhead {
+            fill: yellow;
+        }
+    }
+}
+
+@include media('<=tablet') {
+    .c-svg-rwd {
+        .c-svg-icon__arrow {
+            fill: green;
+        }
+        .c-svg-icon__arrowhead {
+            fill: turquoise;
+        }
+    }
+}
+
+@include media('<=phone') {
+    .c-svg-rwd {
+        .c-svg-icon__arrow {
+            fill: lightcoral;
+        }
+        .c-svg-icon__arrowhead {
+            fill: lightblue;
+        }
+    }
+}

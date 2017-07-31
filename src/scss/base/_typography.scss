@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+
+/* Global texts
+========================================================================== */
+html {
+    @include font-smoothing(on);
+
+    font-size: 16px;
+}
+body {
+    font-family: $font_default;
+    line-height: 1.4;
+
+    color: $color_default;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+
+    color: currentColor;
+    &:hover {
+        text-decoration: none;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:not([class]) {
+        @include helper--link-anim;
+
+        color: $color_default_link;
+        &:hover {
+            @include helper--link-anim-dash-on-hover;
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+    &:not([class]) + &:not([class]) {
+        margin-top: $size_gutter;
+    }
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+
+ul,
+ol {
+    @include helper--list;
+
+    padding-left: $size_gutter;
+    &:not([class]) {
+        padding-left: $size_gutter;
+        li + li {
+            margin-top: $size_gutter/2;
+        }
+    }
+}
+
+ul {
+    &:not([class]) {
+        list-style-type: disc;
+    }
+}
+
+ol {
+    &:not([class]) {
+        list-style-type: decimal;
+    }
+}

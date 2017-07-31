@@ -1,0 +1,16 @@
+/* ==========================================================================
+   Boxes
+   ========================================================================== */
+
+.c-box {
+    padding: $size_gutter/2;
+    & + .c-box {
+        margin-top: $size_gutter*1.5;
+    }
+    &__title {
+        text-transform: uppercase;
+        & + .c-box__content {
+            margin-top: $size_gutter;
+        }
+    }
+}
